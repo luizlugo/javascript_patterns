@@ -8,13 +8,11 @@ var carManagerModule = (function(){
 		},
 		arrangeViewing: function(_model, _id){
 			return "You have successfully booked a viewing of " + _model + " ( " + _id + " ) ";
+		},
+		execute: function(_name){
+			return carManager[_name] && carManager[_name].apply(carManager, [].slice.call(arguments, 1));
 		}
 	};
-
-	carManager.execute = function(_name){
-		return carManager[_name] && carManager[_name].apply(carManager, [].slice.call(arguments, 1));
-	};
-
 	return carManager;
 })();
 
